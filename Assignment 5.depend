@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1524414101 source:/home/samuel/Desktop/C++/Assignment 5/main.cpp
+	<iostream>
+	"CircularInt.hpp"
+
+1524410060 /home/samuel/Desktop/C++/Assignment 5/CircularInt.hpp
+	<iostream>
+	<math.h>
+	<iostream>
+	<stdexcept>
+	<sstream>
+
+1524414085 source:/home/samuel/Desktop/C++/Assignment 5/src/CircularInt.cpp
+	"CircularInt.hpp"
+
+1524414124 /home/samuel/Desktop/C++/Assignment 5/include/CircularInt.hpp
+	<iostream>
+	<math.h>
+	<iostream>
+	<stdexcept>
+	<sstream>
+
