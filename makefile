@@ -1,5 +1,5 @@
-CXX=g++
-CXXFLAGS=-std=c++11
+CXX=clang++-5.0
+CXXFLAGS=-std=c++17 
 
 all: main.o CircularInt.o 
 	$(CXX) $(CXXFLAGS) CircularInt.o main.o
