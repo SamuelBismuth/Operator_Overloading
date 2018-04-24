@@ -92,7 +92,7 @@ CircularInt& CircularInt::operator*= (const int multiplier) {
  */
 CircularInt CircularInt::operator/ (int divisor) {
     if(currentNumber % divisor != 0) {
-        throw NotDivisible(*this, divisor);
+        throw string(NotDivisible(*this, divisor).what());
     }
     else {
        CircularInt answer = *this;
@@ -170,7 +170,7 @@ CircularInt CircularInt::operator%= (const int divisor) {
     currentNumber = currentNumber % circle;
     int inv = modInverse(divisor);
     if (inv == -1)
-        throw NotDivisible(*this, divisor);
+        throw string(NotDivisible(*this, divisor).what());
     currentNumber = (inv * currentNumber) % circle;
     currentNumber = moduloOperation();
     return *this;
