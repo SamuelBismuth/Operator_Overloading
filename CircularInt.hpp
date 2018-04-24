@@ -35,6 +35,13 @@ class CircularInt {
         bool operator ==(CircularInt const& circularInt);
         bool operator !=(CircularInt const& circularInt);
 
+        CircularInt& operator= (CircularInt circularInt);
+        bool operator> (CircularInt const& circularInt) const; //Only worried about currentNumber.
+        bool operator< (CircularInt const& circularInt) const; //Only worried about currentNumber.
+        bool operator<= (CircularInt const& circularInt) const; //Only worried about currentNumber.
+        bool operator>= (CircularInt const& circularInt) const; //Only worried about currentNumber.
+
+
         int getCurrentNumber() const;
         int getMinimum() const;
         int getMaximum() const;
