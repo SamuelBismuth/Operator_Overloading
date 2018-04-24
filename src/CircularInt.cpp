@@ -28,6 +28,21 @@ CircularInt::CircularInt(const int minimum, const int maximum) {
 //Operators.
 
 /**
+ * \brief This operator do copy assignment
+ * \param circularInt
+ * param success description of param here removes warning
+ * \return the object CircularInt after the copy assignment.
+ * Complexity : O(1).
+ */
+CircularInt& CircularInt::operator= (CircularInt circularInt){
+    swap(currentNumber,circularInt.currentNumber);
+    swap(maximum,circularInt.maximum);
+    swap(minimum,circularInt.minimum);
+    swap(circle,circularInt.circle);
+    return *this ;
+}
+
+/**
  * \brief This operator increments the currentNumber of the CircularInt by the integer "increment".
  * \param increment
  * \return the object CircularInt after the incrementation.
@@ -95,10 +110,10 @@ CircularInt CircularInt::operator/ (int divisor) {
         throw string(NotDivisible(*this, divisor).what());
     }
     else {
-       CircularInt answer = *this;
-       answer.currentNumber = answer.currentNumber / divisor;
-       answer.currentNumber = answer.moduloOperation();
-       return answer;
+        CircularInt answer = *this;
+        answer.currentNumber = answer.currentNumber / divisor;
+        answer.currentNumber = answer.moduloOperation();
+        return answer;
     }
 }
 
@@ -236,10 +251,59 @@ bool CircularInt::operator ==(CircularInt const& circularInt) {
  * \return true if it's different, false if not.
  */
 bool CircularInt::operator !=(CircularInt const& circularInt) {
-    if (!(*this == circularInt))
+    if (currentNumber != circularInt.getCurrentNumber() ||
+        minimum != circularInt.getMinimum() ||
+        maximum != circularInt.getMaximum())
         return true;
     return false;
 }
+
+/**
+ * \brief This operator check if the first object is smaller than the second.
+ * \attention : we worried only to the parameter currentNumber.
+ * \param circularInt
+ * \return true if it's smaller, false if not.
+ */
+bool CircularInt::operator <(CircularInt const& circularInt)const {
+    if(currentNumber < circularInt.getCurrentNumber())
+        return true ;
+    return false ;
+}
+
+/**
+ * \brief This operator check if the first object is bigger than the second.
+ * \attention : we worried only to the parameter currentNumber.
+ * \param circularInt
+ * \return true if it's bigger, false if not.
+ */
+bool CircularInt::operator >(CircularInt const& circularInt)const {
+    if(currentNumber > circularInt.getCurrentNumber())
+        return true ;
+    return false ;
+}
+/**
+ * \brief This operator check if the first object is bigger or equal than the second.
+ * \attention : we worried only to the parameter currentNumber.
+ * \param circularInt
+ * \return true if it's bigger or equal, false if not.
+ */
+bool CircularInt::operator >=(CircularInt const& circularInt)const {
+    if(currentNumber >= circularInt.getCurrentNumber())
+        return true ;
+    return false ;
+}
+/**
+ * \brief This operator check if the first object is smaller or equal than the second.
+ * \attention : we worried only to the parameter currentNumber.
+ * \param circularInt
+ * \return true if it's smaller or equal, false if not.
+ */
+bool CircularInt::operator <=(CircularInt const& circularInt)const {
+    if(currentNumber <= circularInt.getCurrentNumber())
+        return true ;
+    return false ;
+}
+
 
 //Getters
 
@@ -363,7 +427,7 @@ int CircularInt::modInverse(int divisor) {
  * \param y
  * \return the gcd.
  */
- int CircularInt::gcdExtended(int number, int divisor, int *x, int *y) {
+int CircularInt::gcdExtended(int number, int divisor, int *x, int *y) {
     if (number == 0) {
         *x = 0, *y = 1;
         return divisor;
@@ -394,3 +458,4 @@ NotDivisible::NotDivisible(CircularInt circularInt, int divisor): runtime_error(
     circularInt.getCurrentNumber();
     static_cast<runtime_error&>(*this) = runtime_error(ss.str());
 }
+
