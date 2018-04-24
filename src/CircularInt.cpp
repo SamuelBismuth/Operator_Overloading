@@ -236,9 +236,7 @@ bool CircularInt::operator ==(CircularInt const& circularInt) {
  * \return true if it's different, false if not.
  */
 bool CircularInt::operator !=(CircularInt const& circularInt) {
-    if (currentNumber != circularInt.getCurrentNumber() ||
-        minimum != circularInt.getMinimum() ||
-        maximum != circularInt.getMaximum())
+    if (!(*this == circularInt))
         return true;
     return false;
 }

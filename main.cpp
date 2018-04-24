@@ -33,7 +33,6 @@ int main() {
 	//	* when is there no answer to a/b?
 	//  -> when a/b is not an integer.
 
-    /**
     cout << hour << endl;                      // 10
     ++hour;   cout << hour << endl;            // 11
     hour -= 5; cout << hour << endl;           // 6
@@ -55,5 +54,4 @@ int main() {
     } catch (const string& message) {
 		cout << message << endl;       // "There is no number x in {1,12} such that x*4=3"
     }
-    */
 }
