@@ -24,6 +24,7 @@ test.o : $(USER_DIR)/test.cpp \
 
 test : CircularInt.o test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) gtest_main.a -lpthread $^ -o $@
+	./test
 
 
 clean :

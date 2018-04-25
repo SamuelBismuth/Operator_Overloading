@@ -246,7 +246,58 @@ TEST(Division, positiveNum)
     int result = hour.getCurrentNumber();
     ASSERT_TRUE( result == 11 || result == 5);
 }
+    
+    /**
+     *Testing the operator = (equal assignment)
+     */
+TEST(Equal_Assignment, sameCircle)
+{
+    CircularInt hour {1, 12}, hour2 {1,12};
+    hour2.setCurrentNumber(12);
+    hour = hour2 ;
+    int result = hour.getCurrentNumber();
+    ASSERT_TRUE( hour == hour2);
+    EXPECT_EQ(12, result);
+}
+    TEST(Equal_Assignment, differentCircle)
+    {
+        CircularInt hour {1, 12}, hour2 {1,24};
+        hour = hour2 ;
+        int result = hour.getMaximum();
+        ASSERT_TRUE( hour == hour2);
+        EXPECT_EQ(24, result);
+    }
 
+    /**
+     *Testing the operators >,<,<=,>= (Boolean)
+     */
+    TEST(Bool, bigger)
+    {
+        CircularInt hour {1, 12}, hour2 {1,12};
+        hour2.setCurrentNumber(12);
+        ASSERT_TRUE( hour2 > hour);
+    }
+    TEST(Bool, smaller)
+    {
+        CircularInt hour {1, 12}, hour2 {1,12};
+        hour2.setCurrentNumber(12);
+        ASSERT_TRUE( hour < hour2);
+    }
+    TEST(Bool, Bigger_or_Equal)
+    {
+        CircularInt hour {1, 12}, hour2 {1,12}, hour3 {1,12};
+        hour3.setCurrentNumber(12);
+        ASSERT_TRUE( hour2 >= hour);
+        ASSERT_TRUE( hour3 >= hour);
+    }
+    
+    TEST(Bool, Smaller_or_Equal)
+    {
+        CircularInt hour {1, 12}, hour2 {1,12}, hour3 {1,12};
+        hour3.setCurrentNumber(12);
+        ASSERT_TRUE( hour <= hour2);
+        ASSERT_TRUE( hour <= hour3);
+    }
 } // namespace
 
 /**
