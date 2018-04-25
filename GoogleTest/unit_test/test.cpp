@@ -10,9 +10,10 @@
  test.cpp do Unitesting in several way on the functions of CircularInt.hpp.
  here we included the gtest/gtest.h header that allow us to execute Google Tests.
 */
-#include <gtest/gtest.h>
 #include <iostream>
 #include "CircularInt.hpp"
+#include "gtest/gtest.h"
+namespace {
 
 
 /**
@@ -20,7 +21,7 @@
  * note that we are initialize the value of 'currentNumber' to 1 when we need it for the tests(via: hour.setCurrentNumber(1);)
  */
 
-CircularInt hour {1, 12};
+CircularInt hour  {1, 12};
 
 
 
@@ -246,9 +247,13 @@ TEST(Division, positiveNum)
     ASSERT_TRUE( result == 11 || result == 5);
 }
 
+} // namespace
 
+/**
+// this main method is run under src>gtest_main.cc
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+*/
 

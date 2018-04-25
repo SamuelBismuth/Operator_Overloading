@@ -1,5 +1,5 @@
-#ifndef CIRCULARINT_H
-#define CIRCULARINT_H
+#ifndef UNIT_TEST_CIRCULARINT_H
+#define UNIT_TEST_CIRCULARINT_H
 
 /** Includes */
 #include <iostream>
@@ -34,6 +34,13 @@ class CircularInt {
         CircularInt operator* (const int multiplier);
         bool operator ==(CircularInt const& circularInt);
         bool operator !=(CircularInt const& circularInt);
+
+        CircularInt& operator= (CircularInt circularInt);
+        bool operator> (CircularInt const& circularInt) const; //Only worried about currentNumber.
+        bool operator< (CircularInt const& circularInt) const; //Only worried about currentNumber.
+        bool operator<= (CircularInt const& circularInt) const; //Only worried about currentNumber.
+        bool operator>= (CircularInt const& circularInt) const; //Only worried about currentNumber.
+
 
         int getCurrentNumber() const;
         int getMinimum() const;
