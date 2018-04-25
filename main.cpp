@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
 
-    CircularInt hour {1, 12},hour2 {6,18};                 // <hour is an integer between 1 and 12, like an hour on the clock>
+    CircularInt hour {1, 12}, hour2 {6,18};   // <hour is an integer between 1 and 12, like an hour on the clock>
 	cout << hour << endl;                     // 1
 	hour += 4;  cout << hour << endl;         // 5
 	(hour += 2)++;  cout << hour << endl;     // 8
@@ -20,7 +20,7 @@ int main() {
 	try {
 		cout << hour / 3;
 	} catch (const string& message) {
-		cout << message << endl;     	  // "There is no number x in {1,12} such that x*3=10"
+		cout << message << endl;     	      // "There is no number x in {1,12} such that x*3=10"
 	}
 
 	// RIDDLES (not for submission):
@@ -52,7 +52,7 @@ int main() {
     try {
         hour %= 4; cout << hour << endl;
     } catch (const string& message) {
-		cout << message << endl;       // "There is no number x in {1,12} such that x*4=3"
+		cout << message << endl;               // "There is no number x in {1,12} such that x*4=3"
     }
     hour.setCurrentNumber(5);
     hour2.setCurrentNumber(10);
@@ -66,17 +66,15 @@ int main() {
     hour2.setCurrentNumber(15);
     cout << "hour:" << hour <<" "<< "hour2:" << hour2 <<endl ;
     if (hour < hour2) {
-        cout << "hour < hour2" << endl;        // "hour < hour2"
+        cout << "hour < hour2" << endl;         // "hour < hour2"
     }
     if (hour <= hour2) {
         cout << "hour <= hour2" << endl;        // "hour <= hour2"
     }
     if (hour2 > hour) {
-        cout << "hour2 > hour" << endl;        // "hour < hour2"
+        cout << "hour2 > hour" << endl;         // "hour < hour2"
     }
     if (hour2 >= hour) {
         cout << "hour2 >= hour" << endl;        // "hour <= hour2"
     }
-    
-
 }

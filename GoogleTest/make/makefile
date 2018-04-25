@@ -1,9 +1,9 @@
-GTEST_DIR = /Users/joh/Documents/מטלות/2017-2018/C++/cpp-3/GoogleTest
+GTEST_DIR = /home/samuel/Desktop/C++/Assignment5/GoogleTest
 USER_DIR = $(GTEST_DIR)/unit_test
 CPPFLAGS += -isystem $(GTEST_DIR)/include
-CXXFLAGS=-std=c++11 
+CXXFLAGS=-std=c++17 
 
-CXX = g++
+CXX = clang++-5.0
 
 
 TESTS = test
