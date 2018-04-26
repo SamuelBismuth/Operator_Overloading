@@ -32,8 +32,8 @@ class CircularInt {
         CircularInt operator+ (const int increment);
         CircularInt operator- (const int decrement);
         CircularInt operator* (const int multiplier);
-        bool operator ==(CircularInt const& circularInt);
-        bool operator !=(CircularInt const& circularInt);
+        bool operator== (CircularInt const& circularInt);
+        bool operator!= (CircularInt const& circularInt);
 
         CircularInt& operator= (CircularInt circularInt);
         bool operator> (CircularInt const& circularInt) const; //Only worried about currentNumber.
@@ -41,6 +41,17 @@ class CircularInt {
         bool operator<= (CircularInt const& circularInt) const; //Only worried about currentNumber.
         bool operator>= (CircularInt const& circularInt) const; //Only worried about currentNumber.
 
+        CircularInt operator+ ();
+        CircularInt operator% (const int modulo);
+        bool operator! () const;
+        bool operator&& (const CircularInt circularInt);
+        bool operator|| (const CircularInt circularInt);
+        CircularInt operator~ ();
+        CircularInt operator& (const CircularInt circularInt);
+        CircularInt operator| (const CircularInt circularInt);
+        CircularInt operator^ (const CircularInt circularInt);
+        CircularInt operator<< (const CircularInt circularInt);
+        CircularInt operator>> (const CircularInt circularInt);
 
         int getCurrentNumber() const;
         int getMinimum() const;

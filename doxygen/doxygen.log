@@ -1,0 +1,6 @@
+/home/samuel/Desktop/C++/Assignment5/src/CircularInt.cpp:317: warning: argument 'modulo.' of command @param is not found in the argument list of CircularInt::operator%(const int modulo)
+/home/samuel/Desktop/C++/Assignment5/include/CircularInt.hpp:45: warning: The following parameters of CircularInt::operator%(const int modulo) are not documented:
+  parameter 'modulo'
+/home/samuel/Desktop/C++/Assignment5/src/CircularInt.cpp:133: warning: argument 'increment' of command @param is not found in the argument list of CircularInt::operator--(const int decrement)
+/home/samuel/Desktop/C++/Assignment5/include/CircularInt.hpp:29: warning: The following parameters of CircularInt::operator--(const int decrement) are not documented:
+  parameter 'decrement'

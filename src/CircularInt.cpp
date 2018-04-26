@@ -305,6 +305,111 @@ bool CircularInt::operator<= (CircularInt const& circularInt) const {
     return false;
 }
 
+/**
+ * \brief This operator do not do anything.
+ * \return CircularInt.
+ */
+CircularInt CircularInt::operator+ () {
+        return *this;
+}
+
+/**
+ * \brief This operator calculate the modulo of the currentNumber.
+ * \param modulo.
+ * \return the object CircularInt after the modification.
+ */
+CircularInt CircularInt::operator% (const int modulo) {
+    currentNumber = currentNumber % modulo;
+    currentNumber = moduloOperation();
+    return *this;
+}
+
+/**
+ * \brief This operator return the inverse of the truth of the circularInt.
+ * \return true if circular int is false and false if it's true.
+ */
+bool CircularInt::operator! () const {
+    if (this->currentNumber == this->minimum)
+        return true;
+    return false;
+}
+
+/**
+ * \brief This operator calculate is return the && operator.
+ * \return true if both of circularInt are true and else false.
+ */
+bool CircularInt::operator&& (const CircularInt circularInt) {
+    return !(!circularInt) && !(!*this);
+}
+
+/**
+ * \brief This operator calculate is return the || operator.
+ * \return true if one of the both circularInt are true and else false.
+ */
+bool CircularInt::operator|| (const CircularInt circularInt) {
+    return !(!circularInt) || !(!*this);
+}
+
+/**
+ * \brief This operator calculate the bitwise not of the currentNumber.
+ * \return the object CircularInt after the modification.
+ */
+CircularInt CircularInt::operator~ () {
+    currentNumber = ~currentNumber;
+    currentNumber = moduloOperation();
+    return *this;
+}
+
+/**
+ * \brief This operator calculate the bitwise and of the currentNumber.
+ * \return the object CircularInt after the modification.
+ */
+CircularInt CircularInt::operator& (const CircularInt circularInt) {
+    currentNumber = currentNumber & circularInt.currentNumber;
+    currentNumber = moduloOperation();
+    return *this;
+}
+
+/**
+ * \brief This operator calculate the bitwise not of the currentNumber.
+ * \return the object CircularInt after the modification.
+ */
+CircularInt CircularInt::operator| (const CircularInt circularInt) {
+    currentNumber = currentNumber | circularInt.currentNumber;
+    currentNumber = moduloOperation();
+    return *this;
+}
+
+/**
+ * \brief This operator calculate the xor of the currentNumber.
+ * \return the object CircularInt after the modification.
+ */
+CircularInt CircularInt::operator^ (const CircularInt circularInt) {
+    currentNumber = currentNumber ^ circularInt.currentNumber;
+    currentNumber = moduloOperation();
+    return *this;
+}
+
+/**
+ * \brief This operator calculate the left shift of the currentNumber.
+ * \return the object CircularInt after the modification.
+ */
+CircularInt CircularInt::operator<< (const CircularInt circularInt) {
+    currentNumber = currentNumber << circularInt.currentNumber;
+    currentNumber = moduloOperation();
+    return *this;
+}
+
+/**
+ * \brief This operator calculate the right shift of the currentNumber.
+ * \return the object CircularInt after the modification.
+ */
+CircularInt CircularInt::operator>> (const CircularInt circularInt) {
+    currentNumber = currentNumber >> circularInt.currentNumber;
+    currentNumber = moduloOperation();
+    return *this;
+}
+
 //Getters
 
 /**

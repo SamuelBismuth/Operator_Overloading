@@ -42,7 +42,18 @@ int main() {
     hour %= 7; cout << hour << endl;           // 3
     cout << hour + 7 << endl;                  // 10
     cout << hour - 9 << endl;                  // 6
-    cout << hour * 2 << endl;                  // 3
+    cout << hour * 2 << endl;                  // 6
+    cout << hour << endl;                      // 3
+    cout << +hour << endl;                     // 3
+    cout << !hour << endl;                     // 0
+    cout << (hour && hour) << endl;            // 1
+    cout << (hour || hour) << endl;            // 1
+    cout << ~hour << endl;                     // 8
+    cout << (hour & hour) << endl;             // 8
+    cout << (hour | hour) << endl;             // 8
+    cout << (hour ^ hour) << endl;             // 12
+    cout << (hour << hour) << endl;            // 12
+    cout << (hour >> hour) << endl;            // 12
     if (hour == hour) {
         cout << "hour == hour" << endl;        // "hour == hour"
     }
