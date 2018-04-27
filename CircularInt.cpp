@@ -63,7 +63,7 @@ CircularInt& CircularInt::operator= (int number) {
  */
 CircularInt CircularInt::operator+ (const CircularInt circularInt) {
     CircularInt answer = *this;
-    answer.currentNumber = answer.currentNumber + circularInt.currentNumber;
+    answer.currentNumber += circularInt.currentNumber;
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
@@ -76,7 +76,7 @@ CircularInt CircularInt::operator+ (const CircularInt circularInt) {
  */
 CircularInt CircularInt::operator+ (const int increment) {
     CircularInt answer = *this;
-    answer.currentNumber = answer.currentNumber + increment;
+    answer.currentNumber += increment;
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
@@ -89,7 +89,7 @@ CircularInt CircularInt::operator+ (const int increment) {
  */
 CircularInt CircularInt::operator- (const CircularInt circularInt) {
     CircularInt answer = *this;
-    answer.currentNumber = answer.currentNumber - circularInt.currentNumber;
+    answer.currentNumber -= circularInt.currentNumber;
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
@@ -102,7 +102,7 @@ CircularInt CircularInt::operator- (const CircularInt circularInt) {
  */
 CircularInt CircularInt::operator- (const int decrement) {
     CircularInt answer = *this;
-    answer.currentNumber = answer.currentNumber - decrement;
+    answer.currentNumber -= decrement;
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
@@ -137,7 +137,7 @@ CircularInt CircularInt::operator- () {
  */
 CircularInt CircularInt::operator* (const CircularInt circularInt) {
     CircularInt answer = *this;
-    answer.currentNumber = answer.currentNumber * circularInt.currentNumber;
+    answer.currentNumber *= circularInt.currentNumber;
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
@@ -150,7 +150,7 @@ CircularInt CircularInt::operator* (const CircularInt circularInt) {
  */
 CircularInt CircularInt::operator* (const int multiplier) {
     CircularInt answer = *this;
-    answer.currentNumber = answer.currentNumber * multiplier;
+    answer.currentNumber *= multiplier;
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
@@ -169,7 +169,7 @@ CircularInt CircularInt::operator/ (const CircularInt circularInt) {
     }
     else {
         CircularInt answer = *this;
-        answer.currentNumber = answer.currentNumber / circularInt.currentNumber;
+        answer.currentNumber /= circularInt.currentNumber;
         answer.currentNumber = answer.moduloOperation();
         return answer;
     }
@@ -189,7 +189,7 @@ CircularInt CircularInt::operator/ (int divisor) {
     }
     else {
         CircularInt answer = *this;
-        answer.currentNumber = answer.currentNumber / divisor;
+        answer.currentNumber /= divisor;
         answer.currentNumber = answer.moduloOperation();
         return answer;
     }
@@ -202,7 +202,7 @@ CircularInt CircularInt::operator/ (int divisor) {
  */
 CircularInt CircularInt::operator% (const CircularInt circularInt) {
     CircularInt answer = *this;
-    answer.currentNumber = answer.currentNumber % circularInt.currentNumber;
+    answer.currentNumber %= circularInt.currentNumber;
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
@@ -214,7 +214,7 @@ CircularInt CircularInt::operator% (const CircularInt circularInt) {
  */
 CircularInt CircularInt::operator% (const int modulo) {
     CircularInt answer = *this;
-    answer.currentNumber = answer.currentNumber % modulo;
+    answer.currentNumber %= modulo;
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
@@ -227,7 +227,7 @@ CircularInt CircularInt::operator% (const int modulo) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator++ () {
-    currentNumber = currentNumber + 1;
+    currentNumber++;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -244,7 +244,7 @@ CircularInt& CircularInt::operator++ () {
  */
 CircularInt CircularInt::operator++ (const int increment) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber + 1;
+    currentNumber++;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -258,7 +258,7 @@ CircularInt CircularInt::operator++ (const int increment) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator-- () {
-    currentNumber = currentNumber - 1;
+    currentNumber--;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -275,7 +275,7 @@ CircularInt& CircularInt::operator-- () {
  */
 CircularInt CircularInt::operator-- (const int decrement) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber - 1;
+    currentNumber--;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -315,11 +315,7 @@ bool CircularInt::operator== (const int& number) {
  * \return true if it's different, false if not.
  */
 bool CircularInt::operator!= (const CircularInt& circularInt) {
-    if (currentNumber != circularInt.getCurrentNumber() ||
-        minimum != circularInt.getMinimum() ||
-        maximum != circularInt.getMaximum())
-        return true;
-    return false;
+    return !(*this == circularInt);
 }
 
 /**
@@ -492,7 +488,7 @@ CircularInt CircularInt::operator~ () {
  */
 CircularInt CircularInt::operator& (const CircularInt circularInt) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber & circularInt.currentNumber;
+    currentNumber &= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -503,7 +499,7 @@ CircularInt CircularInt::operator& (const CircularInt circularInt) {
  */
 CircularInt CircularInt::operator& (const int number) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber & number;
+    currentNumber &= number;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -514,7 +510,7 @@ CircularInt CircularInt::operator& (const int number) {
  */
 CircularInt CircularInt::operator| (const CircularInt circularInt) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber | circularInt.currentNumber;
+    currentNumber |= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -525,7 +521,7 @@ CircularInt CircularInt::operator| (const CircularInt circularInt) {
  */
 CircularInt CircularInt::operator| (const int number) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber | number;
+    currentNumber |= number;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -536,7 +532,7 @@ CircularInt CircularInt::operator| (const int number) {
  */
 CircularInt CircularInt::operator^ (const CircularInt circularInt) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber ^ circularInt.currentNumber;
+    currentNumber ^= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -547,7 +543,7 @@ CircularInt CircularInt::operator^ (const CircularInt circularInt) {
  */
 CircularInt CircularInt::operator^ (const int number) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber ^ number;
+    currentNumber ^= number;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -558,7 +554,7 @@ CircularInt CircularInt::operator^ (const int number) {
  */
 CircularInt CircularInt::operator<< (const CircularInt circularInt) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber << circularInt.currentNumber;
+    currentNumber <<= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -569,7 +565,7 @@ CircularInt CircularInt::operator<< (const CircularInt circularInt) {
  */
 CircularInt CircularInt::operator<< (const int number) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber << number;
+    currentNumber <<= number;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -580,7 +576,7 @@ CircularInt CircularInt::operator<< (const int number) {
  */
 CircularInt CircularInt::operator>> (const CircularInt circularInt) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber >> circularInt.currentNumber;
+    currentNumber >>= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -591,7 +587,7 @@ CircularInt CircularInt::operator>> (const CircularInt circularInt) {
  */
 CircularInt CircularInt::operator>> (const int number) {
     const CircularInt answer = *this;
-    currentNumber = currentNumber >> number;
+    currentNumber >>= number;
     currentNumber = moduloOperation();
     return answer;
 }
@@ -605,7 +601,7 @@ CircularInt CircularInt::operator>> (const int number) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator+= (const CircularInt circularInt) {
-    currentNumber = currentNumber + circularInt.currentNumber;
+    currentNumber += circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -617,7 +613,7 @@ CircularInt& CircularInt::operator+= (const CircularInt circularInt) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator+= (const int increment) {
-    currentNumber = currentNumber + increment;
+    currentNumber += increment;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -629,7 +625,7 @@ CircularInt& CircularInt::operator+= (const int increment) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator-= (const CircularInt circularInt) {
-    currentNumber = currentNumber - circularInt.currentNumber;
+    currentNumber -= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -641,7 +637,7 @@ CircularInt& CircularInt::operator-= (const CircularInt circularInt) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator-= (const int decrement) {
-    currentNumber = currentNumber - decrement;
+    currentNumber -= decrement;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -653,7 +649,7 @@ CircularInt& CircularInt::operator-= (const int decrement) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator*= (const CircularInt circularInt) {
-    currentNumber = currentNumber * circularInt.currentNumber;
+    currentNumber *= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -665,7 +661,7 @@ CircularInt& CircularInt::operator*= (const CircularInt circularInt) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator*= (const int multiplier) {
-    currentNumber = currentNumber * multiplier;
+    currentNumber *= multiplier;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -676,7 +672,7 @@ CircularInt& CircularInt::operator*= (const int multiplier) {
  * \return the object CircularInt after the modification (if it's happen).
  */
 CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
-    currentNumber = currentNumber / circularInt.currentNumber;
+    currentNumber /= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -694,32 +690,22 @@ CircularInt& CircularInt::operator/= (const int divisor) {
 
 /**
  * \brief This operator is a modular division.
- * source of the help for the implementation : https://www.geeksforgeeks.org/modular-division/
  * \param circularInt
  * \return the object CircularInt after the modification (if it's happen).
  */
 CircularInt& CircularInt::operator%= (const CircularInt circularInt) {
-    currentNumber = currentNumber % circle;
-    int inv = modInverse(circularInt.currentNumber);
-    if (inv == -1)
-        throw string(NotDivisible(*this, circularInt.currentNumber).what());
-    currentNumber = (inv * currentNumber) % circle;
+    currentNumber %= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
 
 /**
  * \brief This operator is a modular division.
- * source of the help for the implementation : https://www.geeksforgeeks.org/modular-division/
  * \param divisor
  * \return the object CircularInt after the modification (if it's happen).
  */
 CircularInt& CircularInt::operator%= (const int divisor) {
-    currentNumber = currentNumber % circle;
-    int inv = modInverse(divisor);
-    if (inv == -1)
-        throw string(NotDivisible(*this, divisor).what());
-    currentNumber = (inv * currentNumber) % circle;
+    currentNumber %= divisor;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -729,7 +715,7 @@ CircularInt& CircularInt::operator%= (const int divisor) {
  * \return the object CircularInt after the modification.
  */
 CircularInt& CircularInt::operator&= (const CircularInt circularInt) {
-    currentNumber = currentNumber & circularInt.currentNumber;
+    currentNumber &= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -739,7 +725,7 @@ CircularInt& CircularInt::operator&= (const CircularInt circularInt) {
  * \return the object CircularInt after the modification.
  */
 CircularInt& CircularInt::operator&= (const int number) {
-    currentNumber = currentNumber & number;
+    currentNumber &= number;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -749,7 +735,7 @@ CircularInt& CircularInt::operator&= (const int number) {
  * \return the object CircularInt after the modification.
  */
 CircularInt& CircularInt::operator|= (const CircularInt circularInt) {
-    currentNumber = currentNumber | circularInt.currentNumber;
+    currentNumber |= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -759,7 +745,7 @@ CircularInt& CircularInt::operator|= (const CircularInt circularInt) {
  * \return the object CircularInt after the modification.
  */
 CircularInt& CircularInt::operator|= (const int number) {
-    currentNumber = currentNumber | number;
+    currentNumber |= number;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -769,7 +755,7 @@ CircularInt& CircularInt::operator|= (const int number) {
  * \return the object CircularInt after the modification.
  */
 CircularInt& CircularInt::operator^= (const CircularInt circularInt) {
-    currentNumber = currentNumber ^ circularInt.currentNumber;
+    currentNumber ^= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -779,7 +765,7 @@ CircularInt& CircularInt::operator^= (const CircularInt circularInt) {
  * \return the object CircularInt after the modification.
  */
 CircularInt& CircularInt::operator^= (const int number) {
-    currentNumber = currentNumber ^ number;
+    currentNumber ^= number;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -789,7 +775,7 @@ CircularInt& CircularInt::operator^= (const int number) {
  * \return the object CircularInt after the modification.
  */
 CircularInt& CircularInt::operator<<= (const CircularInt circularInt) {
-    currentNumber = currentNumber << circularInt.currentNumber;
+    currentNumber <<= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -799,7 +785,7 @@ CircularInt& CircularInt::operator<<= (const CircularInt circularInt) {
  * \return the object CircularInt after the modification.
  */
 CircularInt& CircularInt::operator<<= (const int number) {
-    currentNumber = currentNumber << number;
+    currentNumber <<= number;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -809,7 +795,7 @@ CircularInt& CircularInt::operator<<= (const int number) {
  * \return the object CircularInt after the modification.
  */
 CircularInt& CircularInt::operator>>= (const CircularInt circularInt) {
-    currentNumber = currentNumber >>= circularInt.currentNumber;
+    currentNumber >>= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -819,7 +805,7 @@ CircularInt& CircularInt::operator>>= (const CircularInt circularInt) {
  * \return the object CircularInt after the modification.
  */
 CircularInt& CircularInt::operator>>= (const int number) {
-    currentNumber = currentNumber >> number;
+    currentNumber >>= number;
     currentNumber = moduloOperation();
     return *this;
 }
@@ -1000,7 +986,7 @@ istream& operator>> (istream& is, CircularInt& circularInt) {
     return is;
 }
 
-//helps functions.
+//help functions.
 
 /**
  * \brief this inline function is the most important function.
@@ -1013,42 +999,6 @@ istream& operator>> (istream& is, CircularInt& circularInt) {
  */
 int CircularInt::moduloOperation() {
     return currentNumber + (ceil(((double) minimum - (double) currentNumber) / (double) circle))* circle;
-}
-
-/**
- * \brief this help function is calculate the modulo inverse of the divisor.
- * source : https://www.geeksforgeeks.org/modular-division/
- * \param divisor
- * \return the modular inverse.
- */
-int CircularInt::modInverse(int divisor) {
-    int x, y;
-    int g = gcdExtended(divisor, circle, &x, &y);
-    if (g != 1)
-        return -1;
-    return (x % circle + circle) % circle;
-}
-
-/**
- * \brief this help function is calculate the grand common divisor.
- * source : https://www.geeksforgeeks.org/modular-division/
- * \param divisor
- * \param number
- * \param divisor
- * \param x
- * \param y
- * \return the gcd.
- */
-int CircularInt::gcdExtended(int number, int divisor, int *x, int *y) {
-    if (number == 0) {
-        *x = 0, *y = 1;
-        return divisor;
-    }
-    int x1, y1;
-    int gcd = gcdExtended(divisor % number, number, &x1, &y1);
-    *x = y1 - (divisor / number) * x1;
-    *y = x1;
-    return gcd;
 }
 
 /**

@@ -133,11 +133,9 @@ class CircularInt {
             maximum,
             circle;
 
-        // Help functions.
+        // Help function.
 
         inline int moduloOperation();
-        int gcdExtended(int number, int divisor, int *x, int *y);
-        int modInverse(int divisor);
 };
 
 /**
