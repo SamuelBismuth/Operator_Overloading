@@ -114,7 +114,10 @@ CircularInt CircularInt::operator- (const int decrement) {
  * \return CircularInt.
  */
 CircularInt CircularInt::operator+ () {
-        return *this;
+    CircularInt answer = *this;
+    answer.currentNumber =  +currentNumber;
+    answer.currentNumber = answer.moduloOperation();
+    return answer;
 }
 
 /**
