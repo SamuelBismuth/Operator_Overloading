@@ -25,8 +25,6 @@ class CircularInt {
 
         // Arithmetic operators.
 
-        CircularInt& operator= (CircularInt circularInt);
-        CircularInt& operator= (int number);
         CircularInt operator+ (const CircularInt circularInt);
         CircularInt operator+ (const int increment);
         CircularInt operator- (const CircularInt circularInt);

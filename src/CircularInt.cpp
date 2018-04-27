@@ -28,35 +28,6 @@ CircularInt::CircularInt(const int minimum, const int maximum) {
 
 //Operators.
 
-// Arithmetic operators.
-
-/**
- * \brief This operator implements a deep copy.
- * \param circularInt
- * \return the object CircularInt after the deep copy.
- * Complexity : O(1).
- */
-CircularInt& CircularInt::operator= (CircularInt circularInt) {
-    currentNumber = circularInt.currentNumber;
-    maximum = circularInt.maximum;
-    minimum = circularInt.minimum;
-    circle = circularInt.circle;
-    return *this;
-}
-
-/**
- * \brief This operator implements a deep copy.
- * \param circularInt
- * \return the object CircularInt after the deep copy.
- * Complexity : O(1).
- */
-CircularInt& CircularInt::operator= (int number) {
-    if (number > maximum || number < minimum)
-		throw std::invalid_argument("received value not in range\n");
-    currentNumber = number;
-    return *this;
-}
-
 /**
  * \brief This operators do hour + increment.
  * \attention at the difference of +=, this operator only return a new object circularInt without side effect on the "this".
