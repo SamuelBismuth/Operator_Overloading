@@ -981,9 +981,8 @@ ostream& operator<<(ostream& os, const CircularInt& circularInt) {
 istream& operator>> (istream& is, CircularInt& circularInt) {
     int temp;
 	is >> temp;
-	if (temp > circularInt.maximum || temp < circularInt.minimum)
-		throw std::invalid_argument("received value not in range\n");
 	circularInt.currentNumber = temp;
+	circularInt.currentNumber = circularInt.moduloOperation();
     return is;
 }
 
