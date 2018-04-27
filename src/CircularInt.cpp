@@ -124,7 +124,7 @@ CircularInt CircularInt::operator+ () {
  */
 CircularInt CircularInt::operator- () {
     CircularInt answer = *this;
-    answer.currentNumber =  maximum - currentNumber;
+    answer.currentNumber =  -currentNumber;
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
