@@ -17,47 +17,95 @@ using namespace std;
  */
 class CircularInt {
     public:
+        // Constructor
         CircularInt(const int minimum, const int maximum);
-        CircularInt& operator+= (const int increment);
-        CircularInt operator++ (const int increment); //a++ postfix.
-        CircularInt operator- ();
-        CircularInt& operator*= (const int multiplier);
-        CircularInt operator/(const int divisor);
 
-        CircularInt& operator++ (); //++a prefix.
-        CircularInt& operator-= (const int decrement);
-        CircularInt operator-- (const int decrement); //a-- postfix.
-        CircularInt& operator-- (); //--a prefix.
-        CircularInt operator%= (const int divisor);
-        CircularInt operator+ (const int increment);
-        CircularInt operator- (const int decrement);
-        CircularInt operator* (const int multiplier);
-        bool operator== (CircularInt const& circularInt);
-        bool operator!= (CircularInt const& circularInt);
+        // Arithmetic operators.
 
         CircularInt& operator= (CircularInt circularInt);
-        bool operator> (CircularInt const& circularInt) const; //Only worried about currentNumber.
-        bool operator< (CircularInt const& circularInt) const; //Only worried about currentNumber.
-        bool operator<= (CircularInt const& circularInt) const; //Only worried about currentNumber.
-        bool operator>= (CircularInt const& circularInt) const; //Only worried about currentNumber.
-
+        CircularInt operator+ (const CircularInt circularInt);
+        CircularInt operator+ (const int increment);
+        CircularInt operator- (const CircularInt circularInt);
+        CircularInt operator- (const int decrement);
         CircularInt operator+ ();
+        CircularInt operator- ();
+        CircularInt operator* (const CircularInt circularInt);
+        CircularInt operator* (const int multiplier);
+        CircularInt operator/ (const CircularInt circularInt);
+        CircularInt operator/ (const int divisor);
+        CircularInt operator% (const CircularInt circularInt);
         CircularInt operator% (const int modulo);
+        CircularInt& operator++ (); //++a prefix.
+        CircularInt operator++ (const int increment); //a++ postfix.
+        CircularInt& operator-- (); //--a prefix.
+        CircularInt operator-- (const int decrement); //a-- postfix.
+
+        // Comparison operators/relational operators.
+
+        bool operator== (const CircularInt& circularInt);
+        bool operator== (const int& number); //Only worried about currentNumber.
+        bool operator!= (const CircularInt& circularInt);
+        bool operator!= (const int& number); //Only worried about currentNumber.
+        bool operator> (const CircularInt& circularInt) const; //Only worried about currentNumber.
+        bool operator> (const int& number) const; //Only worried about currentNumber.
+        bool operator< (const CircularInt& circularInt) const; //Only worried about currentNumber.
+        bool operator< (const int& number) const; //Only worried about currentNumber.
+        bool operator>= (const CircularInt& circularInt) const; //Only worried about currentNumber.
+        bool operator>= (const int& number) const; //Only worried about currentNumber.
+        bool operator<= (const CircularInt& circularInt) const; //Only worried about currentNumber.
+        bool operator<= (const int& number) const; //Only worried about currentNumber.
+
+        // Logical operators.
+
         bool operator! () const;
         bool operator&& (const CircularInt circularInt);
+        bool operator&& (const int number);
         bool operator|| (const CircularInt circularInt);
+        bool operator|| (const int number);
+
+        // Bitwise operators.
+
         CircularInt operator~ ();
         CircularInt operator& (const CircularInt circularInt);
+        CircularInt operator& (const int number);
         CircularInt operator| (const CircularInt circularInt);
+        CircularInt operator| (const int number);
         CircularInt operator^ (const CircularInt circularInt);
+        CircularInt operator^ (const int number);
         CircularInt operator<< (const CircularInt circularInt);
+        CircularInt operator<< (const int number);
         CircularInt operator>> (const CircularInt circularInt);
+        CircularInt operator>> (const int number);
+
+        // Compound assignment operators.
+
+        CircularInt& operator+= (const CircularInt circularInt);
+        CircularInt& operator+= (const int increment);
+        CircularInt& operator-= (const CircularInt circularInt);
+        CircularInt& operator-= (const int decrement);
+        CircularInt& operator*= (const CircularInt circularInt);
+        CircularInt& operator*= (const int multiplier);
+        CircularInt& operator/= (const CircularInt circularInt);
+        CircularInt& operator/= (const int divisor);
+        CircularInt& operator%= (const CircularInt circularInt);
+        CircularInt& operator%= (const int divisor);
+        CircularInt& operator&= (const CircularInt circularInt);
+        CircularInt& operator&= (const int number);
+        CircularInt& operator|= (const CircularInt circularInt);
+        CircularInt& operator|= (const int number);
+        CircularInt& operator^= (const CircularInt circularInt);
+        CircularInt& operator^= (const int number);
+        CircularInt& operator<<= (const CircularInt circularInt);
+        CircularInt& operator<<= (const int number);
+        CircularInt& operator>>= (const CircularInt circularInt);
+        CircularInt& operator>>= (const int number);
+
+        // Getters and setter.
 
         int getCurrentNumber() const;
         int getMinimum() const;
         int getMaximum() const;
         void setCurrentNumber(int numb);
-
 
     private:
         int currentNumber,
@@ -65,8 +113,8 @@ class CircularInt {
             maximum,
             circle;
         friend ostream& operator<< (ostream& os, const CircularInt& circularInt);
-        friend CircularInt operator- (const int decrement, const CircularInt& circularInt);
-        friend CircularInt operator+ (const CircularInt& circularInt1, const CircularInt& circularInt2);
+        friend CircularInt operator- (const int decrement, const CircularInt& circularInt); //not in use ?
+        friend CircularInt operator+ (const CircularInt& circularInt1, const CircularInt& circularInt2); // not in use ?
         inline int moduloOperation();
         int gcdExtended(int number, int divisor, int *x, int *y);
         int modInverse(int divisor);
