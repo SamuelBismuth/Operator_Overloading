@@ -984,6 +984,22 @@ ostream& operator<<(ostream& os, const CircularInt& circularInt) {
     return os;
 }
 
+/**
+ * \brief This friend operator scan. (As scanner in Java).
+ * \param is
+ * \param circularInt
+ * \return is.
+ * Complexity : O(1).
+ */
+istream& operator>> (istream& is, CircularInt& circularInt) {
+    int temp;
+	is >> temp;
+	if (temp > circularInt.maximum || temp < circularInt.minimum)
+		throw std::invalid_argument("received value not in range\n");
+	circularInt.currentNumber = temp;
+    return is;
+}
+
 //helps functions.
 
 /**

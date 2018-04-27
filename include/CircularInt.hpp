@@ -125,7 +125,7 @@ class CircularInt {
         friend bool operator>= (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
         friend bool operator<= (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
         friend ostream& operator<< (ostream& os, const CircularInt& circularInt);
-
+        friend istream& operator>> (istream& is, CircularInt& circularInt);
         // Variables.
 
         int currentNumber,
