@@ -854,15 +854,17 @@ void CircularInt::setCurrentNumber(int numb) {
 //friends operators.
 
 /**
- * \brief This friend operator print. (As toString in Java).
- * \param os
- * \param circularInt
- * \return os.
+ * \brief This operator acts as a.currentNumber + b.currentNumber.
+ * \param increment
+ * \param circularInt2
+ * \return circularInt.
  * Complexity : O(1).
  */
-ostream& operator<<(ostream& os, const CircularInt& circularInt) {
-    os << circularInt.currentNumber;
-    return os;
+CircularInt operator+ (const int increment, const CircularInt& circularInt) {
+    CircularInt answer = circularInt;
+    answer.currentNumber = increment + circularInt.currentNumber;
+    answer.currentNumber = answer.moduloOperation();
+    return answer;
 }
 
 /**
@@ -880,17 +882,95 @@ CircularInt operator- (const int decrement, const CircularInt& circularInt) {
 }
 
 /**
- * \brief This operator acts as a.currentNumber + b.currentNumber.
- * \param circularInt1
- * \param circularInt2
+ * \brief This operator acts as integer / currentNumber.
+ * \param divisor
+ * \param circularInt
  * \return circularInt.
  * Complexity : O(1).
  */
-CircularInt operator+ (const CircularInt& circularInt1, const CircularInt& circularInt2) {
-    CircularInt circularInt = circularInt1;
-    circularInt.currentNumber = circularInt1.currentNumber + circularInt2.currentNumber;
-    circularInt.currentNumber = circularInt.moduloOperation();
-    return circularInt;
+CircularInt operator/ (const int divisor, const CircularInt& circularInt) {
+    CircularInt answer = circularInt;
+    answer.currentNumber = divisor / circularInt.currentNumber;
+    answer.currentNumber = answer.moduloOperation();
+    return answer;
+}
+
+/**
+ * \brief This operator acts as integer == currentNumber.
+ * \param number
+ * \param circularInt
+ * \return true or false.
+ * Complexity : O(1).
+ */
+bool operator== (const int& number, const CircularInt& circularInt) {
+    return (number == circularInt.currentNumber);
+}
+
+/**
+ * \brief This operator acts as integer != currentNumber.
+ * \param number
+ * \param circularInt
+ * \return true or false.
+ * Complexity : O(1).
+ */
+bool operator!= (const int& number, const CircularInt& circularInt) {
+    return (number != circularInt.currentNumber);
+}
+
+/**
+ * \brief This operator acts as integer > currentNumber.
+ * \param number
+ * \param circularInt
+ * \return true or false.
+ * Complexity : O(1).
+ */
+bool operator> (const int& number, const CircularInt& circularInt) {
+    return (number > circularInt.currentNumber);
+}
+
+/**
+ * \brief This operator acts as integer < currentNumber.
+ * \param number
+ * \param circularInt
+ * \return true or false.
+ * Complexity : O(1).
+ */
+bool operator< (const int& number, const CircularInt& circularInt) {
+    return (number < circularInt.currentNumber);
+}
+
+/**
+ * \brief This operator acts as integer >= currentNumber.
+ * \param number
+ * \param circularInt
+ * \return true or false.
+ * Complexity : O(1).
+ */
+bool operator>= (const int& number, const CircularInt& circularInt) {
+    return (number >= circularInt.currentNumber);
+}
+
+/**
+ * \brief This operator acts as integer <= currentNumber.
+ * \param number
+ * \param circularInt
+ * \return true or false.
+ * Complexity : O(1).
+ */
+bool operator<= (const int& number, const CircularInt& circularInt) {
+    return (number <= circularInt.currentNumber);
+}
+
+/**
+ * \brief This friend operator print. (As toString in Java).
+ * \param os
+ * \param circularInt
+ * \return os.
+ * Complexity : O(1).
+ */
+ostream& operator<<(ostream& os, const CircularInt& circularInt) {
+    os << circularInt.currentNumber;
+    return os;
 }
 
 //helps functions.

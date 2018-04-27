@@ -16,8 +16,11 @@ using namespace std;
  * \author Johann and Samuel.
  */
 class CircularInt {
+
     public:
+
         // Constructor
+
         CircularInt(const int minimum, const int maximum);
 
         // Arithmetic operators.
@@ -108,13 +111,29 @@ class CircularInt {
         void setCurrentNumber(int numb);
 
     private:
+
+        // Friend operators.
+
+        friend CircularInt operator+ (const int increment, const CircularInt& circularInt);
+        friend CircularInt operator- (const int decrement, const CircularInt& circularInt);
+        friend CircularInt operator/ (const int divisor, const CircularInt& circularInt);
+        friend bool operator== (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
+        friend bool operator!= (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
+        friend bool operator> (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
+        friend bool operator< (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
+        friend bool operator>= (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
+        friend bool operator<= (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
+        friend ostream& operator<< (ostream& os, const CircularInt& circularInt);
+
+        // Variables.
+
         int currentNumber,
             minimum,
             maximum,
             circle;
-        friend ostream& operator<< (ostream& os, const CircularInt& circularInt);
-        friend CircularInt operator- (const int decrement, const CircularInt& circularInt); //not in use ?
-        friend CircularInt operator+ (const CircularInt& circularInt1, const CircularInt& circularInt2); // not in use ?
+
+        // Help functions.
+
         inline int moduloOperation();
         int gcdExtended(int number, int divisor, int *x, int *y);
         int modInverse(int divisor);
@@ -125,7 +144,9 @@ class CircularInt {
  * \author Johann and Samuel.
  */
 class NotDivisible : public runtime_error {
+
     public :
+
         NotDivisible(CircularInt circularInt, int divisor);
 };
 
