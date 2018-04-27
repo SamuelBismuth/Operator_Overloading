@@ -37,10 +37,10 @@ CircularInt::CircularInt(const int minimum, const int maximum) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator= (CircularInt circularInt) {
-    swap(currentNumber, circularInt.currentNumber);
-    swap(maximum, circularInt.maximum);
-    swap(minimum, circularInt.minimum);
-    swap(circle, circularInt.circle);
+    currentNumber = circularInt.currentNumber;
+    maximum = circularInt.maximum;
+    minimum = circularInt.minimum;
+    circle = circularInt.circle;
     return *this;
 }
 
@@ -51,7 +51,9 @@ CircularInt& CircularInt::operator= (CircularInt circularInt) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator= (int number) {
-    swap(currentNumber, number);
+    if (number > maximum || number < minimum)
+		throw std::invalid_argument("received value not in range\n");
+    currentNumber = number;
     return *this;
 }
 
