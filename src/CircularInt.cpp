@@ -8,6 +8,7 @@
  */
 
  // Constructor.
+
 /**
  * \brief  Constructor.
  * This is the constructor for the object CircleInt.
@@ -27,6 +28,30 @@ CircularInt::CircularInt(const int minimum, const int maximum) {
 }
 
 //Operators.
+
+// Arithmetic operators.
+
+/**
+ * \brief This operator implements a deep copy.
+ * \param circularInt
+ * \return the object CircularInt after the deep copy.
+ * Complexity : O(1).
+ */
+ void CircularInt::operator= (CircularInt circularInt) {
+    currentNumber = circularInt.currentNumber;
+    currentNumber = moduloOperation();
+}
+
+/**
+ * \brief This operator implements a deep copy.
+ * \param circularInt
+ * \return the object CircularInt after the deep copy.
+ * Complexity : O(1).
+ */
+void CircularInt::operator= (int number) {
+    currentNumber = number;
+    currentNumber = moduloOperation();
+}
 
 /**
  * \brief This operators do hour + increment.
