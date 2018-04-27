@@ -37,10 +37,21 @@ CircularInt::CircularInt(const int minimum, const int maximum) {
  * Complexity : O(1).
  */
 CircularInt& CircularInt::operator= (CircularInt circularInt) {
-    swap(currentNumber,circularInt.currentNumber);
-    swap(maximum,circularInt.maximum);
-    swap(minimum,circularInt.minimum);
-    swap(circle,circularInt.circle);
+    swap(currentNumber, circularInt.currentNumber);
+    swap(maximum, circularInt.maximum);
+    swap(minimum, circularInt.minimum);
+    swap(circle, circularInt.circle);
+    return *this;
+}
+
+/**
+ * \brief This operator implements a deep copy.
+ * \param circularInt
+ * \return the object CircularInt after the deep copy.
+ * Complexity : O(1).
+ */
+CircularInt& CircularInt::operator= (int number) {
+    swap(currentNumber, number);
     return *this;
 }
 
