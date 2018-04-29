@@ -35,8 +35,8 @@ class CircularInt {
         CircularInt operator- ();
         CircularInt operator* (const CircularInt circularInt);
         CircularInt operator* (const int multiplier);
-        //CircularInt operator/ (const CircularInt circularInt);
-        //CircularInt operator/ (const int divisor);
+        CircularInt operator/ (const CircularInt circularInt);
+        CircularInt operator/ (const int divisor);
         CircularInt operator% (const CircularInt circularInt);
         CircularInt operator% (const int modulo);
         CircularInt& operator++ (); //++a prefix.
@@ -126,6 +126,7 @@ class CircularInt {
         friend bool operator<= (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
         friend ostream& operator<< (ostream& os, const CircularInt& circularInt);
         friend istream& operator>> (istream& is, CircularInt& circularInt);
+
         // Variables.
 
         int currentNumber,
