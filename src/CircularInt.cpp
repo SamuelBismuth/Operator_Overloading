@@ -879,9 +879,9 @@ CircularInt operator- (const int decrement, const CircularInt& circularInt) {
  * \return circularInt.
  * Complexity : O(1).
  */
-CircularInt operator/ (const int divisor, const CircularInt& circularInt) {
-    return circularInt;
-}
+//CircularInt operator/ (const int divisor, const CircularInt& circularInt) {
+    //return circularInt;
+//}
 
 /**
  * \brief This operator acts as integer == currentNumber.
