@@ -202,15 +202,11 @@ CircularInt CircularInt::operator/ (int divisor) {
  * \return an object CircularInt after the modification.
  */
 CircularInt CircularInt::operator% (const CircularInt circularInt) {
-    if(currentNumber == 0) {
-        throw string(NotDivisible(*this, circularInt.currentNumber).what());
-    }
-    else {
-        CircularInt answer = *this;
-        answer.currentNumber %= circularInt.currentNumber;
-        answer.currentNumber = answer.moduloOperation();
-        return answer;
-    }
+    CircularInt answer = *this;
+    answer.currentNumber %= circularInt.currentNumber;
+    answer.currentNumber = answer.moduloOperation();
+    return answer;
+
 }
 
 /**
@@ -219,15 +215,10 @@ CircularInt CircularInt::operator% (const CircularInt circularInt) {
  * \return an object CircularInt after the modification.
  */
 CircularInt CircularInt::operator% (const int modulo) {
-    if(modulo == 0) {
-        throw string(NotDivisible(*this, modulo).what());
-    }
-    else {
-        CircularInt answer = *this;
-        answer.currentNumber %= modulo;
-        answer.currentNumber = answer.moduloOperation();
-        return answer;
-    }
+    CircularInt answer = *this;
+    answer.currentNumber %= modulo;
+    answer.currentNumber = answer.moduloOperation();
+    return answer;
 }
 
 /**
