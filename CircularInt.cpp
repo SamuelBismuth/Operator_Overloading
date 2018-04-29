@@ -665,25 +665,24 @@ CircularInt& CircularInt::operator*= (const int multiplier) {
  * \param divisor
  * \return the object CircularInt after the modification (if it's happen).
  */
- /*
 CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
+    isDivisible(circularInt.currentNumber);
     currentNumber /= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
-*/
+
 /**
  * \brief This operator is a division.
  * \param divisor
  * \return the object CircularInt after the modification (if it's happen).
  */
- /*
 CircularInt& CircularInt::operator/= (const int divisor) {
+    isDivisible(divisor);
     currentNumber /= divisor;
     currentNumber = moduloOperation();
     return *this;
 }
-*/
 
 /**
  * \brief This operator is a modular division.

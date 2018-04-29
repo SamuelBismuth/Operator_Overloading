@@ -89,8 +89,8 @@ class CircularInt {
         CircularInt& operator-= (const int decrement);
         CircularInt& operator*= (const CircularInt circularInt);
         CircularInt& operator*= (const int multiplier);
-        //CircularInt& operator/= (const CircularInt circularInt);
-        //CircularInt& operator/= (const int divisor);
+        CircularInt& operator/= (const CircularInt circularInt);
+        CircularInt& operator/= (const int divisor);
         CircularInt& operator%= (const CircularInt circularInt);
         CircularInt& operator%= (const int divisor);
         CircularInt& operator&= (const CircularInt circularInt);
