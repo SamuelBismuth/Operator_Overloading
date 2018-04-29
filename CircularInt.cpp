@@ -880,8 +880,6 @@ CircularInt operator- (const int decrement, const CircularInt& circularInt) {
  * Complexity : O(1).
  */
 CircularInt operator/ (const int divisor, const CircularInt& circularInt) {
-    if (divisor % circularInt.currentNumber != 0)
-        throw std::invalid_argument("There is no number x in this range such that x*i=current\n");
     CircularInt answer = circularInt;
     answer.currentNumber = divisor / answer.currentNumber;
     answer.currentNumber = answer.moduloOperation();
