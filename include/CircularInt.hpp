@@ -35,8 +35,8 @@ class CircularInt {
         CircularInt operator- ();
         CircularInt operator* (const CircularInt circularInt);
         CircularInt operator* (const int multiplier);
-        CircularInt operator/ (const CircularInt circularInt);
-        CircularInt operator/ (const int divisor);
+        //CircularInt operator/ (const CircularInt circularInt);
+        //CircularInt operator/ (const int divisor);
         CircularInt operator% (const CircularInt circularInt);
         CircularInt operator% (const int modulo);
         CircularInt& operator++ (); //++a prefix.

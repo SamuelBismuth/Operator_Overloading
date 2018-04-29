@@ -164,6 +164,7 @@ CircularInt CircularInt::operator* (const int multiplier) {
  * \return the object CircularInt after the division (if it's happen).
  * Complexity : O(1).
  */
+ /*
 CircularInt CircularInt::operator/ (const CircularInt circularInt) {
     isDivisible(circularInt.currentNumber);
     CircularInt answer = *this;
@@ -171,6 +172,7 @@ CircularInt CircularInt::operator/ (const CircularInt circularInt) {
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
+*/
 
 /**
  * \brief This operator work as : currentNumber / divisor.
@@ -180,6 +182,7 @@ CircularInt CircularInt::operator/ (const CircularInt circularInt) {
  * \return the object CircularInt after the division (if it's happen).
  * Complexity : O(1).
  */
+ /*
 CircularInt CircularInt::operator/ (int divisor) {
     isDivisible(divisor);
     CircularInt answer = *this;
@@ -187,7 +190,7 @@ CircularInt CircularInt::operator/ (int divisor) {
     answer.currentNumber = answer.moduloOperation();
     return answer;
 }
-
+*/
 /**
  * \brief This operator calculate the modulo of the currentNumber.
  * \param circularInt
@@ -667,8 +670,8 @@ CircularInt& CircularInt::operator*= (const int multiplier) {
  */
 CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
     isDivisible(circularInt.currentNumber);
-    //currentNumber /= circularInt.currentNumber;
-    //currentNumber = moduloOperation();
+    currentNumber /= circularInt.currentNumber;
+    currentNumber = moduloOperation();
     return *this;
 }
 
@@ -678,8 +681,8 @@ CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
  * \return the object CircularInt after the modification (if it's happen).
  */
 CircularInt& CircularInt::operator/= (const int divisor) {
-    //currentNumber /= divisor;
-    //currentNumber = moduloOperation();
+    currentNumber /= divisor;
+    currentNumber = moduloOperation();
     return *this;
 }
 
