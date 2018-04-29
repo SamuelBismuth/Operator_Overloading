@@ -137,7 +137,7 @@ class CircularInt {
 
         inline int moduloOperation();
         inline int isDivisible(int divisor);
-
+        int Normalization();
 };
 
 /**

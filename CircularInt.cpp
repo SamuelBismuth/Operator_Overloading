@@ -999,19 +999,28 @@ int CircularInt::moduloOperation() {
  * \param divisor
  * \return the result of the division if it's possible.
  * \exception if there is no result for the division.
+ * complexity O(modulo).
  */
-
 int CircularInt::isDivisible(int divisor) {
     CircularInt answer = *this;
     for (int i = minimum; i <= maximum; i++) {
         answer.currentNumber = i * divisor;
-        answer.moduloOperation();
+        answer.Normalization();
         if (answer.currentNumber == currentNumber)
             return currentNumber;
     }
     throw string(NotDivisible(*this, divisor).what());
 }
 
+int CircularInt::Normalization() {
+	while(currentNumber > maximum) {
+		currentNumber = currentNumber - circle;
+	}
+	while(currentNumber < minimum){
+		currentNumber = currentNumber + circle;
+	}
+	return currentNumber;
+}
 
 /**
  * \brief Constructor of the exception NotDivisible.
