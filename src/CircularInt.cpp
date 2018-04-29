@@ -665,22 +665,25 @@ CircularInt& CircularInt::operator*= (const int multiplier) {
  * \param divisor
  * \return the object CircularInt after the modification (if it's happen).
  */
+ /*
 CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
     currentNumber /= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
 }
-
+*/
 /**
  * \brief This operator is a division.
  * \param divisor
  * \return the object CircularInt after the modification (if it's happen).
  */
+ /*
 CircularInt& CircularInt::operator/= (const int divisor) {
     currentNumber /= divisor;
     currentNumber = moduloOperation();
     return *this;
 }
+*/
 
 /**
  * \brief This operator is a modular division.
@@ -879,9 +882,14 @@ CircularInt operator- (const int decrement, const CircularInt& circularInt) {
  * \return circularInt.
  * Complexity : O(1).
  */
-//CircularInt operator/ (const int divisor, const CircularInt& circularInt) {
-    //return circularInt;
-//}
+CircularInt operator/ (const int divisor, const CircularInt& circularInt) {
+    if (divisor % circularInt.currentNumber != 0)
+    throw string(NotDivisible(circularInt, divisor).what());
+    CircularInt answer = circularInt;
+    answer.currentNumber = divisor / answer.currentNumber;
+    answer.currentNumber = answer.moduloOperation();
+    return answer;
+}
 
 /**
  * \brief This operator acts as integer == currentNumber.

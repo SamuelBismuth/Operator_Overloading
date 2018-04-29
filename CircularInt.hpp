@@ -89,8 +89,8 @@ class CircularInt {
         CircularInt& operator-= (const int decrement);
         CircularInt& operator*= (const CircularInt circularInt);
         CircularInt& operator*= (const int multiplier);
-        CircularInt& operator/= (const CircularInt circularInt);
-        CircularInt& operator/= (const int divisor);
+        //CircularInt& operator/= (const CircularInt circularInt);
+        //CircularInt& operator/= (const int divisor);
         CircularInt& operator%= (const CircularInt circularInt);
         CircularInt& operator%= (const int divisor);
         CircularInt& operator&= (const CircularInt circularInt);
@@ -117,7 +117,7 @@ class CircularInt {
 
         friend CircularInt operator+ (const int increment, const CircularInt& circularInt);
         friend CircularInt operator- (const int decrement, const CircularInt& circularInt);
-        //friend CircularInt operator/ (const int divisor, const CircularInt& circularInt);
+        friend CircularInt operator/ (const int divisor, const CircularInt& circularInt);
         friend bool operator== (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
         friend bool operator!= (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
         friend bool operator> (const int& number, const CircularInt& circularInt); //Only worried about currentNumber.
