@@ -674,9 +674,14 @@ CircularInt& CircularInt::operator*= (const int multiplier) {
  * \return the object CircularInt after the modification (if it's happen).
  */
 CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
-    currentNumber /= circularInt.currentNumber;
-    currentNumber = moduloOperation();
-    return *this;
+    if(currentNumber % circularInt.currentNumber != 0) {
+        throw string(NotDivisible(*this, circularInt.currentNumber).what());
+    }
+    else {
+        currentNumber /= circularInt.currentNumber;
+        currentNumber = moduloOperation();
+        return *this;
+    }
 }
 
 /**
@@ -685,9 +690,14 @@ CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
  * \return the object CircularInt after the modification (if it's happen).
  */
 CircularInt& CircularInt::operator/= (const int divisor) {
-    currentNumber /= divisor;
-    currentNumber = moduloOperation();
-    return *this;
+    if(currentNumber % divisor != 0) {
+        throw string(NotDivisible(*this, divisor).what());
+    }
+    else {
+        currentNumber /= divisor;
+        currentNumber = moduloOperation();
+        return *this;
+    }
 }
 
 /**
