@@ -667,8 +667,8 @@ CircularInt& CircularInt::operator*= (const int multiplier) {
  */
 CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
     isDivisible(circularInt.currentNumber);
-    currentNumber /= circularInt.currentNumber;
-    currentNumber = moduloOperation();
+    //currentNumber /= circularInt.currentNumber;
+    //currentNumber = moduloOperation();
     return *this;
 }
 
