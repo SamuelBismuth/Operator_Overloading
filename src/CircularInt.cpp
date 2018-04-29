@@ -165,7 +165,7 @@ CircularInt CircularInt::operator* (const int multiplier) {
  * Complexity : O(1).
  */
 CircularInt CircularInt::operator/ (const CircularInt circularInt) {
-    //isDivisible(circularInt.currentNumber);
+    isDivisible(circularInt.currentNumber);
     CircularInt answer = *this;
     answer.currentNumber /= circularInt.currentNumber;
     answer.currentNumber = answer.moduloOperation();
@@ -181,7 +181,7 @@ CircularInt CircularInt::operator/ (const CircularInt circularInt) {
  * Complexity : O(1).
  */
 CircularInt CircularInt::operator/ (int divisor) {
-    //isDivisible(divisor);
+    isDivisible(divisor);
     CircularInt answer = *this;
     answer.currentNumber /= divisor;
     answer.currentNumber = answer.moduloOperation();
