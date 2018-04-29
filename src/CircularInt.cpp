@@ -882,8 +882,9 @@ CircularInt operator- (const int decrement, const CircularInt& circularInt) {
  * Complexity : O(1).
  */
 CircularInt operator/ (const int divisor, const CircularInt& circularInt) {
+    if (divisor % circularInt.currentNumber != 0)
+        throw string(NotDivisible(circularInt, divisor).what());
     CircularInt answer = circularInt;
-    answer.isDivisible(divisor);
     answer.currentNumber /= divisor;
     answer.currentNumber = answer.moduloOperation();
     return answer;
