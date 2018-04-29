@@ -165,7 +165,7 @@ CircularInt CircularInt::operator* (const int multiplier) {
  * Complexity : O(1).
  */
 CircularInt CircularInt::operator/ (const CircularInt circularInt) {
-    if(currentNumber % circularInt.currentNumber != 0 || circularInt.currentNumber == 0) {
+    if(currentNumber % circularInt.currentNumber != 0) {
         throw string(NotDivisible(*this, circularInt.currentNumber).what());
     }
     else {
@@ -185,7 +185,7 @@ CircularInt CircularInt::operator/ (const CircularInt circularInt) {
  * Complexity : O(1).
  */
 CircularInt CircularInt::operator/ (int divisor) {
-    if(currentNumber % divisor != 0 || divisor == 0) {
+    if(currentNumber % divisor != 0) {
         throw string(NotDivisible(*this, divisor).what());
     }
     else {
@@ -888,7 +888,7 @@ CircularInt operator- (const int decrement, const CircularInt& circularInt) {
  * Complexity : O(1).
  */
 CircularInt operator/ (const int divisor, const CircularInt& circularInt) {
-      if(circularInt.currentNumber % divisor != 0 || divisor == 0) {
+      if(circularInt.currentNumber % divisor != 0) {
         throw string(NotDivisible(circularInt, divisor).what());
     }
     else {
