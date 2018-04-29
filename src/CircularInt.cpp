@@ -666,7 +666,6 @@ CircularInt& CircularInt::operator*= (const int multiplier) {
  * \return the object CircularInt after the modification (if it's happen).
  */
 CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
-    //isDivisible(circularInt.currentNumber);
     currentNumber /= circularInt.currentNumber;
     currentNumber = moduloOperation();
     return *this;
@@ -678,7 +677,6 @@ CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
  * \return the object CircularInt after the modification (if it's happen).
  */
 CircularInt& CircularInt::operator/= (const int divisor) {
-    //isDivisible(divisor);
     currentNumber /= divisor;
     currentNumber = moduloOperation();
     return *this;
@@ -882,8 +880,8 @@ CircularInt operator- (const int decrement, const CircularInt& circularInt) {
  * Complexity : O(1).
  */
 CircularInt operator/ (const int divisor, const CircularInt& circularInt) {
-    //if (divisor % circularInt.currentNumber != 0)
-      //  throw string(NotDivisible(circularInt, divisor).what());
+    if (divisor % circularInt.currentNumber != 0)
+        throw string(NotDivisible(circularInt, divisor).what());
     CircularInt answer = circularInt;
     answer.currentNumber = divisor / answer.currentNumber;
     answer.currentNumber = answer.moduloOperation();
