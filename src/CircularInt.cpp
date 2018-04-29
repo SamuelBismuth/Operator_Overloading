@@ -879,10 +879,9 @@ CircularInt operator- (const int decrement, const CircularInt& circularInt) {
  */
 CircularInt operator/ (const int divisor, const CircularInt& circularInt) {
     CircularInt answer = circularInt;
-    answer.currentNumber = divisor / circularInt.currentNumber;
-    answer.currentNumber = answer.moduloOperation();
+    int temp = answer.isDivisible(circularInt.currentNumber);
+    answer.currentNumber = temp;
     return answer;
-
 }
 
 /**
