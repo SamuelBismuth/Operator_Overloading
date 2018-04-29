@@ -136,6 +136,7 @@ class CircularInt {
         // Help function.
 
         inline int moduloOperation();
+        inline int isDivisible(int divisor);
 
 };
 

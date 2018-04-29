@@ -165,15 +165,10 @@ CircularInt CircularInt::operator* (const int multiplier) {
  * Complexity : O(1).
  */
 CircularInt CircularInt::operator/ (const CircularInt circularInt) {
-    if(currentNumber % circularInt.currentNumber != 0) {
-        throw string(NotDivisible(*this, circularInt.currentNumber).what());
-    }
-    else {
-        CircularInt answer = *this;
-        answer.currentNumber /= circularInt.currentNumber;
-        answer.currentNumber = answer.moduloOperation();
-        return answer;
-    }
+    CircularInt answer = *this;
+    int temp = isDivisible(circularInt.currentNumber);
+    answer.currentNumber = temp;
+    return answer;
 }
 
 /**
@@ -185,15 +180,10 @@ CircularInt CircularInt::operator/ (const CircularInt circularInt) {
  * Complexity : O(1).
  */
 CircularInt CircularInt::operator/ (int divisor) {
-    if(currentNumber % divisor != 0) {
-        throw string(NotDivisible(*this, divisor).what());
-    }
-    else {
-        CircularInt answer = *this;
-        answer.currentNumber /= divisor;
-        answer.currentNumber = answer.moduloOperation();
-        return answer;
-    }
+    CircularInt answer = *this;
+    int temp = isDivisible(divisor);
+    answer.currentNumber = temp;
+    return answer;
 }
 
 /**
@@ -674,14 +664,9 @@ CircularInt& CircularInt::operator*= (const int multiplier) {
  * \return the object CircularInt after the modification (if it's happen).
  */
 CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
-    if(currentNumber % circularInt.currentNumber != 0) {
-        throw string(NotDivisible(*this, circularInt.currentNumber).what());
-    }
-    else {
-        currentNumber /= circularInt.currentNumber;
-        currentNumber = moduloOperation();
-        return *this;
-    }
+    int temp = isDivisible(circularInt.currentNumber);
+    currentNumber = temp;
+    return *this;
 }
 
 /**
@@ -690,14 +675,9 @@ CircularInt& CircularInt::operator/= (const CircularInt circularInt) {
  * \return the object CircularInt after the modification (if it's happen).
  */
 CircularInt& CircularInt::operator/= (const int divisor) {
-    if(currentNumber % divisor != 0) {
-        throw string(NotDivisible(*this, divisor).what());
-    }
-    else {
-        currentNumber /= divisor;
-        currentNumber = moduloOperation();
-        return *this;
-    }
+    int temp = isDivisible(divisor);
+    currentNumber = temp;
+    return *this;
 }
 
 /**
@@ -1012,6 +992,26 @@ istream& operator>> (istream& is, CircularInt& circularInt) {
 int CircularInt::moduloOperation() {
     return currentNumber + (ceil(((double) minimum - (double) currentNumber) / (double) circle))* circle;
 }
+
+/**
+ * \brief this help function is calculate if we can do any division operation
+  on the currentNumber.
+ * \param divisor
+ * \return the result of the division if it's possible.
+ * \exception if there is no result for the division.
+ */
+
+int CircularInt::isDivisible(int divisor) {
+    CircularInt answer = *this;
+    for (int i = minimum; i <= maximum; i++) {
+        answer.currentNumber = i * divisor;
+        answer.moduloOperation();
+        if (answer.currentNumber == currentNumber)
+            return currentNumber;
+    }
+    throw string(NotDivisible(*this, divisor).what());
+}
+
 
 /**
  * \brief Constructor of the exception NotDivisible.
